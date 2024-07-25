@@ -6,7 +6,7 @@
 /*   By: dabdygal <dabdygal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 13:43:16 by dabdygal          #+#    #+#             */
-/*   Updated: 2024/07/25 10:30:39 by dabdygal         ###   ########.fr       */
+/*   Updated: 2024/07/25 13:45:59 by dabdygal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,7 @@ void	ScalarConverter::convert(const std::string &str)
 				c = static_cast<char>(f);
 			if (f >= std::numeric_limits<int>::min() && f <= std::numeric_limits<int>::max())
 				i = static_cast<int>(f);
-			d = static_cast<double>(f);
+			d = static_cast<double>(f);			
 			break;
 		case e_double:
 			if (!str.compare("+inf"))
@@ -203,7 +203,7 @@ void	ScalarConverter::convert(const std::string &str)
 			if (d >= std::numeric_limits<int>::min() && d <= std::numeric_limits<int>::max())
 				i = static_cast<int>(d);
 			if ((d >= -std::numeric_limits<float>::max() && d <= std::numeric_limits<float>::max()) \
-			|| d == std::numeric_limits<double>::infinity() || d == -std::numeric_limits<double>::infinity() || d == std::numeric_limits<double>::quiet_NaN())
+			|| d == std::numeric_limits<double>::infinity() || d == -std::numeric_limits<double>::infinity() || d != d)
 				f = static_cast<float>(d);
 			break;
 		default:
@@ -233,7 +233,7 @@ void	ScalarConverter::convert(const std::string &str)
 	// Printing float
 	std::cout << "float: ";
 	if ((d >= -std::numeric_limits<float>::max() && d <= std::numeric_limits<float>::max()) \
-	|| d == std::numeric_limits<double>::infinity() || d == -std::numeric_limits<double>::infinity() || d == std::numeric_limits<double>::quiet_NaN())
+	|| d == std::numeric_limits<double>::infinity() || d == -std::numeric_limits<double>::infinity() || d != d)
 		std::cout << f << std::endl;
 	else
 		std::cout << "impossible" << std::endl;
